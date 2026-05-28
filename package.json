@@ -11,5 +11,24 @@
     "next": "^14.2.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
+  },
+  "description": "Decrypt and view the Chain Garden token. Enter the key to unlock.",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedsaed/chain-garden.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ahmedsaed/chain-garden/issues"
+  },
+  "homepage": "https://github.com/ahmedsaed/chain-garden#readme",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "typescript": "^6.0.3"
   }
 }
