@@ -18,7 +18,7 @@ function base64ToBuf(b64: string): Uint8Array {
 }
 
 async function deriveKey(password: string): Promise<CryptoKey> {
-  const salt = base64ToBuf(META.salt);
+  const salt = base64ToBuf(META.salt).buffer as ArrayBuffer;
   const baseKey = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(password),
@@ -56,13 +56,17 @@ export default function Home() {
 
       // Derive key and decrypt
       const cryptoKey = await deriveKey(key);
-      const iv = base64ToBuf(META.iv);
+      const iv = base64ToBuf(META.iv).buffer as ArrayBuffer;
       const authTag = base64ToBuf(META.authTag);
+
+      const combined = new Uint8Array(encrypted.byteLength + authTag.byteLength);
+      combined.set(new Uint8Array(encrypted), 0);
+      combined.set(authTag, encrypted.byteLength);
 
       const decrypted = await crypto.subtle.decrypt(
         { name: "AES-GCM", iv, additionalData: new Uint8Array(0), tagLength: 128 },
         cryptoKey,
-        new Uint8Array([...new Uint8Array(encrypted), ...authTag])
+        combined
       );
 
       // Convert to blob URL
