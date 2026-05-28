@@ -153,6 +153,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   input: {
     width: "100%",
+    boxSizing: "border-box",
     padding: "12px 16px",
     borderRadius: 6,
     border: "1px solid rgba(200,180,140,0.2)",
@@ -165,6 +166,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   button: {
     width: "100%",
+    boxSizing: "border-box",
     padding: "12px 24px",
     borderRadius: 6,
     border: "none",
