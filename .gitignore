@@ -2,3 +2,11 @@ node_modules/
 .next/
 out/
 .env
+photo.jpg
+photo.enc
+photo-decrypted.jpg
+ipfs-output.json
+encryption-meta.json
+artifacts/
+cache/
+typechain-types/

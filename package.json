@@ -1,34 +1,49 @@
 {
-  "name": "chain-garden-viewer",
+  "name": "chain-garden",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "encrypt": "node encrypt.js",
+    "upload": "node upload.js",
+    "deploy:test": "npx hardhat run scripts/deploy.js --network base-sepolia",
+    "deploy": "npx hardhat run scripts/deploy.js --network base",
+    "mint:test": "npx hardhat run scripts/mint.js --network base-sepolia",
+    "mint": "npx hardhat run scripts/mint.js --network base"
   },
   "dependencies": {
     "next": "^14.2.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },
-  "description": "Decrypt and view the Chain Garden token. Enter the key to unlock.",
-  "main": "next.config.js",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.6.1",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "dotenv": "^16.6.1",
+    "hardhat": "^2.28.6",
+    "typescript": "^6.0.3"
+  },
+  "description": "Chain Garden — Two ERC-721 tokens on Base. One is a proof. One is a secret.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahmedsaed/chain-garden.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/ahmedsaed/chain-garden/issues"
   },
   "homepage": "https://github.com/ahmedsaed/chain-garden#readme",
-  "devDependencies": {
-    "@types/node": "^25.9.1",
-    "@types/react": "^19.2.15",
-    "typescript": "^6.0.3"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "keccak",
+      "secp256k1"
+    ]
   }
 }
